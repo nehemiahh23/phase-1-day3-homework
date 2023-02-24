@@ -12,6 +12,7 @@
 
 const catCont = document.getElementById("cat-container")
 const dogCont = document.getElementById("dog-container")
+const detailImage = document.getElementById("detail-image")
 
 fetch("http://localhost:3000/cats")
 .then(response => response.json())
@@ -28,7 +29,11 @@ fetch("http://localhost:3000/cats")
         nameHead.innerText = cats.name
         imgTag.src = cats.image
         breedP.innerText = cats.breed
+        cat.addEventListener("click", () => {
+            detailImage.src = cats.image
+        })
     })
+    detailImage.src = cats[0].image
 })
 
 //////////////////////////////////////////////////////////////
@@ -50,6 +55,9 @@ fetch("http://localhost:3000/dogs")
         nameHead.innerText = dogs.name
         imgTag.src = dogs.image
         breedP.innerText = dogs.breed
+        dog.addEventListener("click", () => {
+            detailImage.src = dogs.image
+        })
     })
 })
 
